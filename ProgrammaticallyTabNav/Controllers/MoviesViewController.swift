@@ -10,6 +10,8 @@ import UIKit
 
 class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var delegate: MovieDelegate!
+    
     lazy var menuBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "Menu", style: UIBarButtonItem.Style.plain, target: self, action: #selector(menuButton))
         return button
@@ -29,7 +31,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
         setLayout()
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
-        moviesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        moviesCollectionView.register(CellMovies.self, forCellWithReuseIdentifier: "Cell")
         moviesCollectionView.register(HeaderMovies.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
     }
     
@@ -61,6 +63,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! HeaderMovies
+        header.titleLabel.text = "Title \(indexPath.section)"
         return header
     }
     
@@ -81,9 +84,18 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.layer.borderWidth = 0.5
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CellMovies
+        cell.cellLabel.text = "section: \(indexPath.section)\n\nrow: \(indexPath.row)"
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate.selectedMovie(movie: indexPath)
+        navigationController?.pushViewController(MoviesBowserController(), animated: true)
+    }
 
+}
+
+protocol MovieDelegate {
+    func selectedMovie(movie: IndexPath)
 }

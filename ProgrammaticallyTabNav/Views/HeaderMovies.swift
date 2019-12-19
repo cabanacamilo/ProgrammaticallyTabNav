@@ -18,6 +18,14 @@ class HeaderMovies: UICollectionViewCell {
         return view
     }()
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
@@ -25,10 +33,13 @@ class HeaderMovies: UICollectionViewCell {
     
     func setLayout() {
         addSubview(moviesView)
+        moviesView.addSubview(titleLabel)
         moviesView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         moviesView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         moviesView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         moviesView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: moviesView.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: moviesView.centerYAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {

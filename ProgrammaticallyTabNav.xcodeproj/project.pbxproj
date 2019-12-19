@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2026CF23ABC3490057D0AC /* CellMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2026CE23ABC3490057D0AC /* CellMovies.swift */; };
+		2F2026D123ABC6CC0057D0AC /* MoviesBowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */; };
 		2F58686023A1782B00F66CA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58685F23A1782B00F66CA5 /* AppDelegate.swift */; };
 		2F58686223A1782B00F66CA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58686123A1782B00F66CA5 /* SceneDelegate.swift */; };
 		2F58686423A1782B00F66CA5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58686323A1782B00F66CA5 /* MainTabBarController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F2026CE23ABC3490057D0AC /* CellMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMovies.swift; sourceTree = "<group>"; };
+		2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesBowserController.swift; sourceTree = "<group>"; };
 		2F58685C23A1782B00F66CA5 /* ProgrammaticallyTabNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgrammaticallyTabNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F58685F23A1782B00F66CA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F58686123A1782B00F66CA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 				2F58687323A1798600F66CA5 /* MoviesViewController.swift */,
 				2F58687523A179C200F66CA5 /* FavoritesViewController.swift */,
 				2FFA68D423A18791004D90DA /* MenuViewController.swift */,
+				2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				2FFA68D823A1955F004D90DA /* HeaderMovies.swift */,
+				2F2026CE23ABC3490057D0AC /* CellMovies.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +174,8 @@
 				2F58686023A1782B00F66CA5 /* AppDelegate.swift in Sources */,
 				2F58686223A1782B00F66CA5 /* SceneDelegate.swift in Sources */,
 				2F58687623A179C200F66CA5 /* FavoritesViewController.swift in Sources */,
+				2F2026CF23ABC3490057D0AC /* CellMovies.swift in Sources */,
+				2F2026D123ABC6CC0057D0AC /* MoviesBowserController.swift in Sources */,
 				2F58687423A1798600F66CA5 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
