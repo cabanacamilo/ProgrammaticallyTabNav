@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MoviesBowserController: UIViewController, MovieDelegate {
+class MoviesBowserController: UIViewController {
     
-    let moviesController = MoviesViewController()
+    var index = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        moviesController.delegate = self
+        navigationItem.title = "Movie \(index)"
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -23,12 +23,8 @@ class MoviesBowserController: UIViewController, MovieDelegate {
         hidesBottomBarWhenPushed = true
     }
     
-    func selectedMovie(movie: IndexPath) {
-        navigationItem.title = "Movie: \(movie)"
-        print(movie)
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

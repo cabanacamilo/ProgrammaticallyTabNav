@@ -10,8 +10,6 @@ import UIKit
 
 class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var delegate: MovieDelegate!
-    
     lazy var menuBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "Menu", style: UIBarButtonItem.Style.plain, target: self, action: #selector(menuButton))
         return button
@@ -90,8 +88,9 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.selectedMovie(movie: indexPath)
-        navigationController?.pushViewController(MoviesBowserController(), animated: true)
+        let vc = MoviesBowserController()
+        vc.index = indexPath
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
