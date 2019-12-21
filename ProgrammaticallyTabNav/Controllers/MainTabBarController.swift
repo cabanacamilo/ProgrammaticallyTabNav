@@ -17,10 +17,10 @@ class MainTabBarController: UITabBarController {
     
     func setUpTabBar() {
         let videoController = UINavigationController(rootViewController: MoviesViewController())
-        videoController.tabBarItem.image = UIImage(systemName: "power" )
+        videoController.tabBarItem.image = UIImage(systemName: "play.circle.fill" )
         
         let favoriteController = UINavigationController(rootViewController: FavoritesViewController())
-        favoriteController.tabBarItem.image = UIImage(systemName: "person")
+        favoriteController.tabBarItem.image = UIImage(systemName: "star.fill")
         
         viewControllers = [videoController, favoriteController]
     }
