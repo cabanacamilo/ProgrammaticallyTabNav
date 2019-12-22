@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0A34C623AFB7400053EBF8 /* HeaderMovieDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A34C523AFB7400053EBF8 /* HeaderMovieDescription.swift */; };
 		2F2026CF23ABC3490057D0AC /* CellMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2026CE23ABC3490057D0AC /* CellMovies.swift */; };
 		2F2026D123ABC6CC0057D0AC /* MoviesBowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */; };
 		2F58686023A1782B00F66CA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58685F23A1782B00F66CA5 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0A34C523AFB7400053EBF8 /* HeaderMovieDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMovieDescription.swift; sourceTree = "<group>"; };
 		2F2026CE23ABC3490057D0AC /* CellMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMovies.swift; sourceTree = "<group>"; };
 		2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesBowserController.swift; sourceTree = "<group>"; };
 		2F58685C23A1782B00F66CA5 /* ProgrammaticallyTabNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgrammaticallyTabNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 			children = (
 				2FFA68D823A1955F004D90DA /* HeaderMovies.swift */,
 				2F2026CE23ABC3490057D0AC /* CellMovies.swift */,
+				2F0A34C523AFB7400053EBF8 /* HeaderMovieDescription.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				2FFA68D523A18791004D90DA /* MenuViewController.swift in Sources */,
 				2F58686023A1782B00F66CA5 /* AppDelegate.swift in Sources */,
 				2F64A5DD23AE8223003A908A /* Movie.swift in Sources */,
+				2F0A34C623AFB7400053EBF8 /* HeaderMovieDescription.swift in Sources */,
 				2F58686223A1782B00F66CA5 /* SceneDelegate.swift in Sources */,
 				2F58687623A179C200F66CA5 /* FavoritesViewController.swift in Sources */,
 				2F2026CF23ABC3490057D0AC /* CellMovies.swift in Sources */,

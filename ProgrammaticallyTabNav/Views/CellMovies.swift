@@ -10,13 +10,11 @@ import UIKit
 
 class CellMovies: UICollectionViewCell {
     
-    let cellLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .gray
-        label.numberOfLines = 3
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let movieImage: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
     override init(frame: CGRect) {
@@ -25,10 +23,11 @@ class CellMovies: UICollectionViewCell {
     }
     
     func setLayout() {
-        addSubview(cellLabel)
-        layer.borderWidth = 0.5
-        cellLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        cellLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        addSubview(movieImage)
+        movieImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        movieImage.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        movieImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        movieImage.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {

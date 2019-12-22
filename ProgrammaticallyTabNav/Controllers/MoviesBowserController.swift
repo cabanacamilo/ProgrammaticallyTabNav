@@ -8,19 +8,61 @@
 
 import UIKit
 
-class MoviesBowserController: UIViewController {
+class MoviesBowserController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var index = IndexPath()
+    var selectedMovie = Movie(gender: "", name: "", description: "", photo: "", releaseDate: Date(), director: "")
+    
+    let movieTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationItem.title = "Movie \(index)"
+        view.backgroundColor = .systemBackground
+        navigationItem.title = selectedMovie.name
+        setLayout()
+        movieTableView.delegate = self
+        movieTableView.dataSource = self
+        movieTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TrailerCell")
+        movieTableView.register(HeaderMovieDescription.self, forHeaderFooterViewReuseIdentifier: "MovieDescription")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         hidesBottomBarWhenPushed = true
+    }
+    
+    func setLayout() {
+        view.addSubview(movieTableView)
+        let guide = view.safeAreaLayoutGuide
+        movieTableView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+        movieTableView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+        movieTableView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        movieTableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 550
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MovieDescription") as! HeaderMovieDescription
+        header.imageMovie.image = UIImage(named: selectedMovie.photo)
+        header.descriptionMovie.text = selectedMovie.description
+        header.labelMovie.text = "\(selectedMovie.gender) Movie; \(selectedMovie.releaseDate)"
+        header.directorMovie.text = selectedMovie.director
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrailerCell", for: indexPath)
+        return cell
     }
     
     required init?(coder: NSCoder) {
