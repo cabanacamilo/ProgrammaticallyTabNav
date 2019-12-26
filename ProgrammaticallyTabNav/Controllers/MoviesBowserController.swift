@@ -13,7 +13,7 @@ class MoviesBowserController: UIViewController, UITableViewDelegate, UITableView
     var selectedMovie = Movie(gender: "", name: "", description: "", photo: "", releaseDate: Date(), director: "")
     
     let movieTableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -44,7 +44,7 @@ class MoviesBowserController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 550
+        return 600
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -57,12 +57,24 @@ class MoviesBowserController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrailerCell", for: indexPath)
+        cell.textLabel?.text = "Trailer \(indexPath.row + 1)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Run Trailer\(indexPath.row + 1)")
+        let vc = TrailerController()
+        vc.trailer = indexPath
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     required init?(coder: NSCoder) {

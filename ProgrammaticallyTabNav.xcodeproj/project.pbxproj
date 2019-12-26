@@ -20,6 +20,7 @@
 		2F64A5DD23AE8223003A908A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F64A5DC23AE8223003A908A /* Movie.swift */; };
 		2FFA68D523A18791004D90DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA68D423A18791004D90DA /* MenuViewController.swift */; };
 		2FFA68D923A1955F004D90DA /* HeaderMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA68D823A1955F004D90DA /* HeaderMovies.swift */; };
+		2FFD52D323B5464A0001FC17 /* TrailerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD52D223B5464A0001FC17 /* TrailerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2F64A5DC23AE8223003A908A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		2FFA68D423A18791004D90DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2FFA68D823A1955F004D90DA /* HeaderMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMovies.swift; sourceTree = "<group>"; };
+		2FFD52D223B5464A0001FC17 /* TrailerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				2F58687523A179C200F66CA5 /* FavoritesViewController.swift */,
 				2FFA68D423A18791004D90DA /* MenuViewController.swift */,
 				2F2026D023ABC6CC0057D0AC /* MoviesBowserController.swift */,
+				2FFD52D223B5464A0001FC17 /* TrailerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				2FFA68D523A18791004D90DA /* MenuViewController.swift in Sources */,
 				2F58686023A1782B00F66CA5 /* AppDelegate.swift in Sources */,
 				2F64A5DD23AE8223003A908A /* Movie.swift in Sources */,
+				2FFD52D323B5464A0001FC17 /* TrailerController.swift in Sources */,
 				2F0A34C623AFB7400053EBF8 /* HeaderMovieDescription.swift in Sources */,
 				2F58686223A1782B00F66CA5 /* SceneDelegate.swift in Sources */,
 				2F58687623A179C200F66CA5 /* FavoritesViewController.swift in Sources */,
