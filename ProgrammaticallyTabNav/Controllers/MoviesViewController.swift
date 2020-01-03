@@ -93,6 +93,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = MoviesBowserController()
         vc.selectedMovie = movies.allMovies[indexPath.section].movies[indexPath.item]
+        vc.movieIndex = indexPath
         navigationController?.pushViewController(vc, animated: true)
     }
 

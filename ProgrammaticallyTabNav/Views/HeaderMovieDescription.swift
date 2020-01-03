@@ -31,9 +31,9 @@ class HeaderMovieDescription: UITableViewHeaderFooterView {
         return label
     }()
     
-    let playButtom: UIButton = {
+    let favoriteButtom: UIButton = {
         let buttom = UIButton()
-        buttom.setTitle("Play", for: .normal)
+        buttom.setTitle("Favorities", for: .normal)
         buttom.backgroundColor = .red
         buttom.tintColor = .white
         buttom.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,7 @@ class HeaderMovieDescription: UITableViewHeaderFooterView {
         addSubview(headerView)
         headerView.addSubview(imageMovie)
         headerView.addSubview(labelMovie)
-        headerView.addSubview(playButtom)
+        headerView.addSubview(favoriteButtom)
         headerView.addSubview(descriptionMovie)
         headerView.addSubview(directorMovie)
         headerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -79,11 +79,11 @@ class HeaderMovieDescription: UITableViewHeaderFooterView {
         imageMovie.heightAnchor.constraint(equalToConstant: 200 * 1.48).isActive = true
         labelMovie.topAnchor.constraint(equalTo: imageMovie.bottomAnchor, constant: 10).isActive = true
         labelMovie.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
-        playButtom.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10).isActive = true
-        playButtom.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10).isActive = true
-        playButtom.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
-        playButtom.topAnchor.constraint(equalTo: labelMovie.bottomAnchor, constant: 20).isActive = true
-        descriptionMovie.topAnchor.constraint(equalTo: playButtom.bottomAnchor, constant: 10).isActive = true
+        favoriteButtom.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10).isActive = true
+        favoriteButtom.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10).isActive = true
+        favoriteButtom.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+        favoriteButtom.topAnchor.constraint(equalTo: labelMovie.bottomAnchor, constant: 20).isActive = true
+        descriptionMovie.topAnchor.constraint(equalTo: favoriteButtom.bottomAnchor, constant: 10).isActive = true
         descriptionMovie.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10).isActive = true
         descriptionMovie.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10).isActive = true
         directorMovie.topAnchor.constraint(equalTo: descriptionMovie.bottomAnchor, constant: 10).isActive = true

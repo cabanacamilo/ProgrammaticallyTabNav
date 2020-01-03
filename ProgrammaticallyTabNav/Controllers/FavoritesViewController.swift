@@ -9,14 +9,20 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
+    
+    var favoritiesMovies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = "Favorites"
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print(favoritiesMovies)
+    }
 
     /*
     // MARK: - Navigation

@@ -10,7 +10,10 @@ import UIKit
 
 class MoviesBowserController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var selectedMovie = Movie(gender: "", name: "", description: "", photo: "", releaseDate: Date(), director: "")
+    var selectedMovie = Movie(gender: "", name: "", description: "", photo: "", releaseDate: Date(), director: "", isFavorite: false)
+    var movieIndex = IndexPath()
+    let movies = MoviesList()
+    let mainController = MoviesViewController()
     
     let movieTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -53,7 +56,28 @@ class MoviesBowserController: UIViewController, UITableViewDelegate, UITableView
         header.descriptionMovie.text = selectedMovie.description
         header.labelMovie.text = "\(selectedMovie.gender) Movie; \(selectedMovie.releaseDate)"
         header.directorMovie.text = selectedMovie.director
+        if movies.allMovies[movieIndex.section].movies[movieIndex.row].isFavorite {
+            header.favoriteButtom.backgroundColor = .yellow
+            header.favoriteButtom.setTitleColor(.black, for: .normal)
+        } else {
+            header.favoriteButtom.backgroundColor = .gray
+            header.favoriteButtom.setTitleColor(.white, for: .normal)
+        }
+        header.favoriteButtom.addTarget(self, action: #selector(isFavoriteButton), for: .touchUpInside)
         return header
+    }
+    
+    @objc func isFavoriteButton() {
+        let favoriteController = FavoritesViewController()
+        if movies.allMovies[movieIndex.section].movies[movieIndex.row].isFavorite {
+            print("No")
+            movies.allMovies[movieIndex.section].movies[movieIndex.row].isFavorite = false
+        } else {
+            print("yes")
+            favoriteController.favoritiesMovies.append(selectedMovie)
+            movies.allMovies[movieIndex.section].movies[movieIndex.row].isFavorite = true
+        }
+        movieTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
