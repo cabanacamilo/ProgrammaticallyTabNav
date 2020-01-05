@@ -10,7 +10,9 @@ import UIKit
 
 class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let movies = MoviesList()
+    var movies = MoviesList().allMovies
+    var favoritiesMovies = [Movie]()
+    let moviesBowserViewController = MoviesBowserController()
     
     lazy var menuBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "Menu", style: UIBarButtonItem.Style.plain, target: self, action: #selector(menuButton))
@@ -29,6 +31,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         setNavigationBar()
         setLayout()
+        moviesBowserViewController.mainController = self
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
         moviesCollectionView.register(CellMovies.self, forCellWithReuseIdentifier: "Cell")
@@ -54,7 +57,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return movies.allMovies.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -63,12 +66,12 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! HeaderMovies
-        header.titleLabel.text = movies.allMovies[indexPath.section].genderName
+        header.titleLabel.text = movies[indexPath.section].genderName
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.allMovies[section].movies.count
+        return movies[section].movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -86,15 +89,18 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CellMovies
-        cell.movieImage.image = UIImage(named: movies.allMovies[indexPath.section].movies[indexPath.item].photo)
+        cell.movieImage.image = UIImage(named: movies[indexPath.section].movies[indexPath.item].photo)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = MoviesBowserController()
-        vc.selectedMovie = movies.allMovies[indexPath.section].movies[indexPath.item]
-        vc.movieIndex = indexPath
-        navigationController?.pushViewController(vc, animated: true)
+        moviesBowserViewController.movieIndex = indexPath
+        navigationController?.pushViewController(moviesBowserViewController, animated: true)
+    }
+    
+    func addFavoriteMovie(movie: Movie) {
+        favoritiesMovies.append(movie)
+        print(favoritiesMovies)
     }
 
 }
