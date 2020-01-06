@@ -11,7 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var movies = MoviesList().allMovies
-    var favoritiesMovies = [Movie]()
+//    var favoritiesMovies = [Movie]()
     let moviesBowserViewController = MoviesBowserController()
     
     lazy var menuBarButton: UIBarButtonItem = {
@@ -98,9 +98,27 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
         navigationController?.pushViewController(moviesBowserViewController, animated: true)
     }
     
-    func addFavoriteMovie(movie: Movie) {
-        favoritiesMovies.append(movie)
-        print(favoritiesMovies)
+    override func viewDidAppear(_ animated: Bool) {
+        let tabBar = tabBarController as! MainTabBarController
+        var favoriteMovies = [Movie]()
+        for i in movies.indices {
+            for j in movies[i].movies.indices {
+                if movies[i].movies[j].isFavorite {
+                    favoriteMovies.append(movies[i].movies[j])
+                }
+            }
+        }
+        tabBar.favoriteMovies = favoriteMovies
     }
+    
+//    func addFavoriteMovie(movie: Movie) {
+//        favoritiesMovies.append(movie)
+//        print(favoritiesMovies)
+//        for i in movies.indices {
+//            for j in movies[i].movies.indices {
+//                print(movies[i].movies[j].isFavorite)
+//            }
+//        }
+//    }
 
 }

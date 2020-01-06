@@ -72,7 +72,7 @@ class MoviesBowserController: UIViewController, UITableViewDelegate, UITableView
         } else {
             print("yes")
             mainController?.movies[movieIndex.section].movies[movieIndex.row].isFavorite = true
-            mainController?.addFavoriteMovie(movie: (mainController?.movies[movieIndex.section].movies[movieIndex.row])!)
+//            mainController?.addFavoriteMovie(movie: (mainController?.movies[movieIndex.section].movies[movieIndex.row])!)
         }
         movieTableView.reloadData()
     }

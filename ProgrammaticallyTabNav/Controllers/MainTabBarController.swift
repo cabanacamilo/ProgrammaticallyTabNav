@@ -10,6 +10,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    var favoriteMovies = [Movie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBar()
